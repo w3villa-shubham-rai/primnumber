@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>prime number</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <form onsubmit="checkPrime(event)" class="form-container">
+        <label for="no">Enter a number:</label>
+        <input id="no" type="number" required>
+        <button type="submit">Check Prime</button>
+      </form>
+
+
+  <script>
+    function primenumber(number) {
+      if (number <= 1) {
+        return false;
+      }
+
+      for (var i = 2; i <= Math.sqrt(number); i++) {
+        if (number % i === 0) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    function checkPrime(event) {
+      event.preventDefault();
+      const inputNumber = parseInt(document.getElementById("no").value);
+      if (primenumber(inputNumber)) {
+        alert("Number is prime.");
+      } else {
+        alert("Number is not prime.");
+      }
+    }
+  </script>
+  
+</body>
+</html>
